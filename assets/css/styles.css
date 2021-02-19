@@ -1,0 +1,53 @@
+/* body {
+  background-color: antiquewhite;
+} */
+
+main {
+  width: 80%;
+  margin: auto;
+}
+
+.clip-svg {
+  clip-path: url(#myClip);
+}
+
+.tri-clip {
+  clip-path: url(#triClip);;
+}
+
+.svg-border-mask {
+  -webkit-mask-box-image: url(../svg/triangle.svg) 30 repeat;
+  mask-border: url(../svg/triangle.svg) 30 repeat;
+}
+
+img {
+  width: 120px;
+  height: auto;
+}
+
+.rot-90 {
+  transform: rotate(-90deg);
+}
+
+.fab-1 {
+  position: relative;
+  z-index: 1;
+}
+
+.fab-2 {
+  position: absolute;
+  left: 50px;
+  z-index: 2;
+}
+
+.price-label {
+  float: left;
+}
+
+.price-value {
+  float: right;
+}
+
+input[type=radio]{
+  transform:scale(1.25);
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>BAQ Build a Kit</h1>
+          <br />
+        </div>
+      </div>
+
+      <div class="row">
+
+        <!-- Size Options -->
+
+        <div class="col">
+          <h5>Pattern: Equal Rights</h5>
+          <h5>Size:</h5>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Lap - 53" × 68"
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Twin - 75" × 94"
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+            <label class="form-check-label" for="exampleRadios3">
+              Queen - 87" × 106"
+            </label>
+          </div>
+        </div>
+
+        <!-- Prices -->
+
+        <div class="col">
+          <div>
+            <h6> 
+              <span class="price-label">Total:</span>
+              <span class="price-value">$31.39</span>
+            </h6>
+          </div>
+          <br>
+          <div>
+            <span class="price-label">Pattern:</span>
+            <span class="price-value">$14.49</span>
+          </div>
+          <br>
+          <div>
+            <span class="price-label">Fabric:</span>
+            <span class="price-value">$16.44</span>
+          </div>
+        </div>
+      </div><br>
+
+      <!-- Main BaK Form Front -->
+
+      <div class="row">
+
+        <!-- Fabric Options Front -->
+
+        <div class="col">
+          <h6>Fabric 1</h6>
+          <select id="fab-1" class="custom-select custom-select-lg mb-3">
+            <option selected>Select...</option>
+            <option value="bella-batiks-2127">Bella Batiks 2127</option>
+            <option value="hoffman-celery">Hoffman Celery</option>
+            <option value="hoffman-olivia">Hoffman Olivia</option>
+          </select>
+          <h6>Fabric 2</h6>
+          <select id="fab-2" class="custom-select custom-select-lg mb-3">
+            <option selected>Select...</option>
+            <option value="bella-batiks-2127">Bella Batiks 2127</option>
+            <option value="hoffman-celery">Hoffman Celery</option>
+            <option value="hoffman-olivia">Hoffman Olivia</option>
+          </select>
+          <h6>Fabric 3</h6>
+          <select id="fab-3" class="custom-select custom-select-lg mb-3">
+            <option selected>Select...</option>
+            <option value="bella-batiks-2127">Bella Batiks 2127</option>
+            <option value="hoffman-celery">Hoffman Celery</option>
+            <option value="hoffman-olivia">Hoffman Olivia</option>
+          </select>
+        </div>
+
+        <!-- Presentation Front -->
+
+        <div class="col">
+          <h6>Front</h6>
+          <img class="tri-clip fab-1" src="./assets/images/hoffman-olivia-2.00.jpg">
+          <img class="tri-clip rot-90 fab-2" src="./assets/images/hoffman-olivia-2.00.jpg">
+        </div>
+      </div>
+
+      <!-- Optional Back / Binding Toggle -->
+
+      <div class="row">
+        <div class="col">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="backing-binding-option" checked="true">
+            <label class="custom-control-label" for="backing-binding-option">Include Backing and Binding</label>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <!-- Main BaK From Back -->
+
+      <div id="backing-binding" class="row">
+
+        <!-- Fabric Options Back -->
+
+        <div class="col">
+          <div class="back">
+            <h6>Backing</h6>
+          </div>
+        </div>
+
+        <!-- Presentation Back -->
+
+        <div class="col">
+          <div class="back">
+            <h6>Back</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <svg>
+      <defs>
+        <clipPath id="triClip">
+          <g>
+            <path d="M 354.13692,141.77194 H 26.13895 L -26.13895,-26.13895 Z"
+              style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000;stroke-opacity: -1; stroke-width: 10px;" id="path2139" />
+              <path
+              id="path851-6"
+              style="fill:none;stroke:#000000;stroke-width:0.52916664"
+              d="M 406.41482,141.77194 V -26.13895 L -26.13895,26.13895 Z" />
+           <path
+              id="path851-7"
+              style="fill:none;stroke:#000000;stroke-width:0.52916663;stroke-miterlimit:4;stroke-dasharray:none"
+              d="M 406.41482,141.77194 V 26.13896 L 26.13896,-26.13896 Z" />
+           <path
+              id="path851-6-5"
+              style="fill:none;stroke:#000000;stroke-width:0.52916664"
+              d="M 406.41482,194.04984 h 26.13896 L 406.41482,167.9109 Z" />
+           <path
+              id="path851-7-3"
+              style="fill:none;stroke:#000000;stroke-width:0.52916664"
+              d="M 354.13692,141.77194 V 167.9109 L 327.99797,141.77194 Z" />
+           <path
+              id="path851-6-5-5"
+              style="fill:none;stroke:#000000;stroke-width:0.52916664"
+              d="M 354.13692,194.04984 H 327.99797 L 354.13692,167.9109 Z" />
+           <path
+              id="path851-62"
+              style="fill:none;stroke:#000000;stroke-width:0.52916664"
+              d="M 354.13692,194.04984 h 26.13895 L -26.13895,26.13895 Z" />
+           <path
+              id="path851-6-9"
+              style="fill:none;stroke:#000000;stroke-width:0.52916664"
+              d="M 406.41482,194.04984 V 26.13895 L -26.13895,-26.13895 Z" />
+          </g>
+        </clipPath>
+      </defs>
+    </svg> -->
+
+    <svg>
+      <defs>
+        <clipPath id="triClip">
+          <path d="M 1.1456794,90.992902 H 104.68765 L 52.916667,1.3229167 Z"
+            style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000;stroke-opacity: -1; stroke-width: 10px;" id="path2139" />
+        </clipPath>
+      </defs>
+    </svg>
+  </main>
+
+  <!-- Body.<br />
+  <img id="triangle" class="tri-clip">
+
+  <svg width="0" height="0">
+    <defs>
+      <clipPath id="myClip">
+        <circle cx="100" cy="100" r="60" />
+        <circle cx="60" cy="60" r="60" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <svg>
+    <defs>
+      <clipPath id="triClip">
+        <path d="M 1.1456794,90.992902 H 104.68765 L 52.916667,1.3229167 Z"
+          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none" id="path2139" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <br /> -->
+
+  <!-- <img src="./assets/images/hoffman-olivia-2.00.jpg" alt="Olivia" class="svg-border-mask"> -->
+  <!-- <img src="./assets/images/bella-batiks-2127-2.00.jpg" alt=""> -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
