@@ -197,7 +197,7 @@ const pattern = {
 
 const fabrics = [
   {
-    name: 'Batik Sea Turtles',
+    name: 'Batik Sea Turtles Turqoise',
     price: 8.95,
     value: 'batik-sea-turtles-turqoise',
     url: './assets/images/batik-sea-turtles-turqoise.jpg'
@@ -300,31 +300,52 @@ const fabrics = [
 
 $(document).ready(() => {
   let fab1, fab2, fab3;
-
-  $('#pattern-name').text(`Pattern: ${pattern.name}`);
+  let patternSizeChoice;
   
+  $('#pattern-name').text(`Pattern: ${pattern.name}`);
+
+  $('#size-options').change(() => {
+    patternSizeChoice = $('input[name="pattern-size"]:checked').val();
+    console.log(patternSizeChoice);
+    console.log('pattern size changed');
+  });
+
   for (size of pattern.sizes) {
     let string = `${size.size} - ${size.width} × ${size.length}`;
-    // console.log(string);
     let option = $('<div>')
       .addClass('form-check form-check-inline')
       .html(`
-        <input class="form-check-input" type="radio" name="pattern-size" id="${size.size}" value="${size.size}">
-        <label class="form-check-label" for="${size.size}">
+        <input class="form-check-input" type="radio" name="pattern-size" id="${dashCase(size.size)}" value="${dashCase(size.size)}">
+        <label class="form-check-label" for="${dashCase(size.size)}">
           ${string}
         </label>
       `);
     $('#size-options').append(option);
   }
 
-  let checkedOption = pattern.sizes.map((p) => p.size).indexOf('Queen') > -1 ? 'Queen' : pattern.sizes[0].size;
+  let checkedOption = pattern.sizes.map((p) => p.size).indexOf('Queen') > -1 ? 'queen' : dashCase(pattern.sizes[0].size);
   $(`#${checkedOption}`).prop('checked', true);
+  patternSizeChoice = checkedOption;
+  
+  let sizeIndex = pattern.sizes.map((p) => p.size).indexOf(titleCase(patternSizeChoice));
+  for (requirement of pattern.sizes[sizeIndex].fabrics.front) {
+    let title = $('<h6></h6>').text(requirement.label);
+    $('#top-fabrics').append(title);
+  }
+
+
+  /* Populate fabric option select box
+  ** from list of available fabrics
+  ** --> convert to a reusable function
+  */
+
+  // for ()
 
   for (fabric of fabrics) {
     $('#fab-1')
       .append($('<option></option>')
-        .attr('value', fabric.value)
-        .text(`${titleCase(fabric.value)} - $${fabric.price}`));
+        .attr('value', dashCase(fabric.name))
+        .text(`${fabric.name} - $${fabric.price}`));
   }
 
   let dummy = 'fab-1';
@@ -353,6 +374,7 @@ $(document).ready(() => {
   });
 });
 
+/* Helper Functions */
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -362,6 +384,11 @@ function titleCase(string) {
   return strArr.map((w) => {
     return capitalize(w);
   }).join(' ');
+}
+
+function dashCase(string) {
+  let strArr = string.toLowerCase().split(' ');
+  return strArr.join('-');
 }
 
 function setImageUrl(id, classname) {
