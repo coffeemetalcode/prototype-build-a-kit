@@ -13,4 +13,13 @@
 6. Removing the kit from the cart is a destructive action and the user should not be able to do it without receiving a warning that the kit is not recoverable.
 7. After checkout, BAQ will receive the user's order including any custom kits. Custom kits will include the pattern and yardages of each fabric chosen as part of the kit.
 
-Notes:
+<u>Notes:</u>
+ - To begin building this app for the Shopify Apps ecosystem, I will be following [this article.](https://www.shopify.com/partners/blog/how-to-build-a-shopify-app?utm_source=exacttarget&utm_medium=email&utm_campaign=blog&utm_content=partner_blog-2021-02-25)
+ - The app will be built as a [custom](https://shopify.dev/concepts/apps?itcat=partner_blog&itterm=how_to_build_a_shopify_app&shpxid=dc1a3b73-328D-4114-7F83-B672249F8FF6#custom-apps) [embedded](https://shopify.dev/concepts/apps?itcat=partner_blog&itterm=how_to_build_a_shopify_app&shpxid=dc1a3b73-328D-4114-7F83-B672249F8FF6#embedded-apps) app.
+ - The hope is to generalize the functionality of the app for use in other retail domains (build a suit, build an outfit, other kitting / bundling opportunities) and make it a [public app.](https://shopify.dev/concepts/apps?itcat=partner_blog&itterm=how_to_build_a_shopify_app&shpxid=dc1a3b73-328D-4114-7F83-B672249F8FF6#public-apps)
+ - A quick search of Shopify's App Store reveals that there are kit / bundle options available but none with the level of specificity that would allow a user to create their own kit from a list of dynamically generated fabric requirements and different curated lists of options.
+ - For inspiration and to isoloate cases for differentiation, see
+   - [prequilt](https://prequilt.com/)
+   - [quiltingapps](http://www.quiltingapps.com/)
+ - Learn as much as possible about [Polaris.](https://polaris.shopify.com/?itcat=partner_blog&itterm=how_to_build_a_shopify_app)
+ - Steps for developing NodeJS app from Shopify Partner Dashboard [here.](https://shopify.dev/tutorials/build-a-shopify-app-with-node-and-react?itcat=partner_blog&itterm=how_to_build_a_shopify_app&shpxid=dc1a3b73-328D-4114-7F83-B672249F8FF6)

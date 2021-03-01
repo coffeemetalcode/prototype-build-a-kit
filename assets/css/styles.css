@@ -7,12 +7,20 @@ main {
   margin: auto;
 }
 
-.clip-svg {
-  clip-path: url(#myClip);
+.top-right {
+  clip-path: url(#topRight);
 }
 
 .tri-clip {
-  clip-path: url(#triClip);;
+  clip-path: url(#triClip);
+}
+
+.top-left {
+  clip-path: url(#topRight);
+}
+
+.bottom-right {
+  fill: blueviolet;
 }
 
 .svg-border-mask {

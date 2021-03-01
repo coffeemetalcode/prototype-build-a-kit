@@ -299,6 +299,9 @@ const fabrics = [
 **************/
 
 $(document).ready(() => {
+  const topCanvas = document.getElementById('top');
+  const topctx = topCanvas.getContext('2d');
+
   let fab1, fab2, fab3;
   let patternSizeChoice;
   
@@ -312,8 +315,8 @@ $(document).ready(() => {
 
   for (size of pattern.sizes) {
     let string = `${size.size} - ${size.width} × ${size.length}`;
-    let option = $('<div>')
-      .addClass('form-check form-check-inline')
+    let option = $('<div class="form-check form-check-inline"></div>')
+      // .addClass('form-check form-check-inline')
       .html(`
         <input class="form-check-input" type="radio" name="pattern-size" id="${dashCase(size.size)}" value="${dashCase(size.size)}">
         <label class="form-check-label" for="${dashCase(size.size)}">
@@ -329,23 +332,38 @@ $(document).ready(() => {
   
   let sizeIndex = pattern.sizes.map((p) => p.size).indexOf(titleCase(patternSizeChoice));
   for (requirement of pattern.sizes[sizeIndex].fabrics.front) {
-    let title = $('<h6></h6>').text(requirement.label);
-    $('#top-fabrics').append(title);
-  }
+    let title = $('<div></div>').text(requirement.label + ': ' + toMixed(requirement.yardage));
+    // let yardage = $('<div></div>').text(requirement.yardage).attr('data-yardage', requirement.yardage);
+    // title.append(yardage);
+    let fabId = `#${dashCase(requirement.label)}`;
+    let select = $(`
+      <select id=${dashCase(requirement.label)} class="custom-select custom-select-lg mb-3">
+        <option selected>Select... </option>
+      </select>
+    `);
 
+    select.attr('data-yardage', requirement.yardage)
 
-  /* Populate fabric option select box
-  ** from list of available fabrics
-  ** --> convert to a reusable function
-  */
+    /* Make this a reusable function */
+    for (fabric of fabrics) {
+      select.append($('<option></option>')
+      .attr('value', dashCase(fabric.name))
+      .attr('data-price', fabric.price)
+      .text(`${fabric.name} - $${fabric.price}`));
+    }
 
-  // for ()
+    $('#top-fabrics')
+      .append(title)
+      .append(select);
 
-  for (fabric of fabrics) {
-    $('#fab-1')
-      .append($('<option></option>')
-        .attr('value', dashCase(fabric.name))
-        .text(`${fabric.name} - $${fabric.price}`));
+    $(fabId).change(() => {
+      console.log(
+        fabId,
+        $(fabId).val(),
+        $(fabId).find(':selected').data('price'),
+        $(fabId).find(':selected').data('price') * $(fabId).data('yardage')
+      );
+    });
   }
 
   let dummy = 'fab-1';
@@ -372,6 +390,11 @@ $(document).ready(() => {
     includeBacking = !includeBacking;
     backingControls.prop('hidden', !includeBacking);
   });
+
+  /* Fuck around with Canvas */
+  /* topctx.fillRect(10, 10, 150, 100);
+  topctx.fillStyle = 'green';
+  topctx.fillRect(10, 160, 210, 100); */
 });
 
 /* Helper Functions */
@@ -397,4 +420,47 @@ function setImageUrl(id, classname) {
   elar.each((i) => {
     elar[i].src=url;
   });
+}
+
+function toMixed (float) {
+  let int = Math.floor(float);
+  let frac = toFraction(float % 1);
+  let mixed;
+  let yard;
+
+  if (int < 2) {
+    yard = ' yard';
+  } else {
+    yard = ' yards';
+  }
+  
+  if (int === 0) {
+    mixed = frac;
+  } else if (frac === null) {
+    mixed = int;
+  } else {
+    mixed = int + '-' + frac;
+  }
+  return mixed + yard;
+}
+
+function toFraction (dec) {
+  const fracStrings = {
+    /* halfs */
+    '0.5': '1/2',
+    /* quarters */
+    '0.25': '1/4',
+    '0.75': '3/4',
+    /* thirds */
+    '0.333': '1/3',
+    '0.666': '2/3',
+    '0.667': '2/3',
+    /* eighths */
+    '0.125': '1/8',
+    '0.375': '3/8',
+    '0.625': '5/8',
+    '0.875': '7/8'
+  };
+
+  return dec !== 0 ? fracStrings[dec] : null;
 }
