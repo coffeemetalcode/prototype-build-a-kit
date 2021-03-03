@@ -392,6 +392,8 @@ $(document).ready(() => {
   });
 
   /* Fuck around with Canvas */
+  /* See this Stack Overflow answer
+  - https://stackoverflow.com/questions/4960111/image-as-a-background-to-a-drawn-shape */
   /* topctx.fillRect(10, 10, 150, 100);
   topctx.fillStyle = 'green';
   topctx.fillRect(10, 160, 210, 100); */
